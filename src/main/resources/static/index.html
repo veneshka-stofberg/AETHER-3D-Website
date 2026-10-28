@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+<script type="importmap">
+{
+  "imports": {
+    "three": "/vendor/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.175.0/examples/jsm/"
+  }
+}
+</script>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <meta name="theme-color" content="#050507">
+
+    <meta name="description"
+          content="AETHER — An immersive digital experience beyond imagination.">
+
+    <title>AETHER — Creative Digital Experiences</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <!-- INTRO LOADING SCREEN -->
+
+    <div id="loader" class="loader" role="status">
+
+        <div class="loader-content">
+
+            <span class="loader-symbol">✳</span>
+
+            <p class="loader-caption">
+                ENTERING A NEW DIMENSION
+            </p>
+
+            <h2>AETHER</h2>
+
+            <div class="loader-line">
+                <span id="load-bar"></span>
+            </div>
+
+            <span id="load-label">
+                INITIALIZING EXPERIENCE
+            </span>
+
+        </div>
+
+    </div>
+
+    <!-- THREE.JS CANVAS -->
+
+    <canvas id="world" aria-hidden="true"></canvas>
+
+    <!-- BACKGROUND EFFECTS -->
+
+    <div class="ambient" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- NAVIGATION -->
+
+    <header class="site-header">
+
+        <a href="#home" class="brand">
+            AETHER<span class="brand-star">✳</span>
+        </a>
+
+        <nav aria-label="Main navigation">
+
+            <a href="#home">HOME</a>
+
+            <a href="#explore">EXPLORE</a>
+
+            <a href="#showcase">WORK</a>
+
+            <a href="#contact">CONTACT</a>
+
+        </nav>
+
+        <button id="pause"
+                class="control"
+                type="button"
+                aria-pressed="false">
+
+            Ⅱ <span>PAUSE MOTION</span>
+
+        </button>
+
+    </header>
+
+    <main>
+
+        <!-- SECTION 01: CINEMATIC HERO -->
+
+        <section id="home" class="chapter hero">
+
+            <div class="hero-top eyebrow">
+
+                <span>INDEPENDENT CREATIVE UNIVERSE</span>
+
+                <span>EST. 2026 / ∞</span>
+
+            </div>
+
+            <div class="hero-copy">
+
+                <p class="kicker reveal">
+                    <span class="indicator"></span>
+                    EXPERIMENTAL DIGITAL REALITY
+                </p>
+
+                <h1 class="hero-title reveal">
+
+                    CREATIVE
+
+                    <span class="outline-text">
+                        DIGITAL
+                    </span>
+
+                    EXPERIENCES<span class="period">.</span>
+
+                </h1>
+
+                <div class="hero-details reveal">
+
+                    <p class="hero-sub">
+                        Where imagination meets technology.
+                        Exploring new dimensions through
+                        design, motion and interaction.
+                    </p>
+
+                    <a href="#explore" class="text-link">
+
+                        EXPLORE THE UNKNOWN
+
+                        <span>↗</span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="hero-bottom eyebrow">
+
+                <span>
+                    SCROLL TO EXPLORE ↓
+                </span>
+
+                <span>
+                    01 — 05
+                </span>
+
+            </div>
+
+        </section>
+
+        <!-- SECTION 02: 3D EXPLORATION -->
+
+        <section id="explore" class="chapter explore">
+
+            <div class="section-index">
+                01 / ENTER THE VOID
+            </div>
+
+            <div class="section-content">
+
+                <p class="kicker reveal">
+                    THE NEXT FRONTIER
+                </p>
+
+                <h2 class="reveal">
+
+                    STEP INTO
+
+                    <em>ANOTHER</em>
+
+                    DIMENSION.
+
+                </h2>
+
+                <p class="section-description reveal">
+
+                    Beyond the familiar lies an
+                    infinite landscape of possibility.
+
+                    A world built from light,
+                    movement and imagination.
+
+                </p>
+
+                <div class="explore-marker reveal">
+
+                    <span class="marker-line"></span>
+
+                    <span>DISCOVER THE UNSEEN</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- SECTION 03: INTERACTIVE EXPERIENCE -->
+
+        <section id="interact" class="chapter interact">
+
+            <div class="section-index">
+                02 / INTERACTIVE MATTER
+            </div>
+
+            <div class="section-content">
+
+                <p class="kicker reveal">
+                    SYSTEM ONLINE
+                </p>
+
+                <h2 class="reveal">
+
+                    MATTER
+
+                    <em>IS NOT</em>
+
+                    STATIC.
+
+                </h2>
+
+                <p class="section-description reveal">
+
+                    Shape the energy surrounding you.
+
+                    Change the frequency of the
+                    sculpture and watch the
+                    environment respond.
+
+                </p>
+
+                <div class="modes reveal"
+                     role="group"
+                     aria-label="Energy modes">
+
+                    <button class="mode active"
+                            data-mode="pulse"
+                            aria-pressed="true">
+
+                        <span>01</span> PULSE
+
+                    </button>
+
+                    <button class="mode"
+                            data-mode="flux"
+                            aria-pressed="false">
+
+                        <span>02</span> FLUX
+
+                    </button>
+
+                    <button class="mode"
+                            data-mode="void"
+                            aria-pressed="false">
+
+                        <span>03</span> VOID
+
+                    </button>
+
+                </div>
+
+                <p id="mode-status"
+                   class="mode-status"
+                   aria-live="polite">
+
+                    PULSE — ENERGY STABLE
+
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- SECTION 04: FLOATING SHOWCASE -->
+
+        <section id="showcase" class="chapter showcase">
+
+            <div class="section-index">
+                03 / SELECTED ARTIFACTS
+            </div>
+
+            <div class="showcase-heading">
+
+                <p class="kicker reveal">
+                    EXPLORATIONS IN DIGITAL FORM
+                </p>
+
+                <h2 class="reveal">
+
+                    BEYOND
+
+                    <em>THE ORDINARY.</em>
+
+                </h2>
+
+            </div>
+
+            <div class="showcase-stage">
+
+                <div class="showcase-orbit"
+                     aria-hidden="true"></div>
+
+                <div id="artifact-grid"
+                     class="artifact-grid">
+
+                    <article class="artifact">
+
+                        <span>
+                            01 / GENERATIVE FORM
+                        </span>
+
+                        <h3>THE ORIGIN</h3>
+
+                        <p>
+                            A structure born from
+                            mathematical possibility.
+                        </p>
+
+                    </article>
+
+                    <article class="artifact">
+
+                        <span>
+                            02 / LUMINOUS SYSTEM
+                        </span>
+
+                        <h3>THE SIGNAL</h3>
+
+                        <p>
+                            Light becomes architecture
+                            through motion.
+                        </p>
+
+                    </article>
+
+                    <article class="artifact">
+
+                        <span>
+                            03 / SPATIAL STUDY
+                        </span>
+
+                        <h3>THE INFINITE</h3>
+
+                        <p>
+                            A universe without
+                            a fixed boundary.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- SECTION 05: FINAL CINEMATIC MOMENT -->
+
+        <section id="contact" class="chapter finale">
+
+            <div class="finale-content">
+
+                <p class="kicker reveal">
+                    THE FUTURE IS UNWRITTEN
+                </p>
+
+                <h2 class="reveal">
+
+                    LET'S CREATE
+
+                    <em>WHAT'S NEXT.</em>
+
+                </h2>
+
+                <p class="section-description reveal">
+
+                    Every impossible idea
+                    begins with a conversation.
+
+                </p>
+
+                <button id="contact-toggle"
+                        class="cta reveal"
+                        type="button">
+
+                    START A PROJECT
+
+                    <span>↗</span>
+
+                </button>
+
+                <form id="contact-form"
+                      class="contact-form"
+                      hidden>
+
+                    <label>
+                        YOUR NAME
+
+                        <input type="text"
+                               name="name"
+                               required
+                               maxlength="100"
+                               autocomplete="name">
+                    </label>
+
+                    <label>
+                        EMAIL ADDRESS
+
+                        <input type="email"
+                               name="email"
+                               required
+                               autocomplete="email">
+                    </label>
+
+                    <label>
+                        YOUR MESSAGE
+
+                        <textarea name="message"
+                                  rows="4"
+                                  maxlength="2000"
+                                  required></textarea>
+                    </label>
+
+                    <button type="submit" class="cta">
+                        TRANSMIT MESSAGE ↗
+                    </button>
+
+                    <p id="contact-status"
+                       role="status"></p>
+
+                </form>
+
+            </div>
+
+            <footer>
+
+                <span>AETHER © 2026</span>
+
+                <span>
+                    DESIGNING BEYOND REALITY
+                </span>
+
+                <a href="#home">
+                    BACK TO TOP ↑
+                </a>
+
+            </footer>
+
+        </section>
+
+    </main>
+
+    <!-- THREE.JS IMPORT MAP -->
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "/vendor/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.175.0/examples/jsm/"
+  }
+}
+</script>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "/vendor/three.module.js"
+        }
+    }
+    </script>
+
+    <!-- MAIN JAVASCRIPT -->
+
+    <script type="module"
+            src="/js/main.js"></script>
+
+</body>
+</html>
