@@ -1,4 +1,4 @@
-package main.java.com.aether.web;
+package com.aether.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
